@@ -85,7 +85,6 @@ public class ClientInterface extends javax.swing.JFrame {
             this.messageText.setEnabled(true); // ativa o campo de texto de mensagem
             this.chatText.setEnabled(true); // ativa o campo de texto de chat
             this.sendBtn.setEnabled(true); // ativa o botão Enviar
-            this.clearBtn.setEnabled(true); // ativa o botão Limpar
 
             JOptionPane.showMessageDialog(this, "Conexão realizada com sucesso!");
         }
@@ -99,7 +98,6 @@ public class ClientInterface extends javax.swing.JFrame {
         this.messageText.setEnabled(false); // desativa o campo de texto de mensagem
         this.chatText.setEnabled(false); // desativa o campo de texto de chat
         this.sendBtn.setEnabled(false); // desativa o botão Enviar
-        this.clearBtn.setEnabled(false); // desativa o botão Limpar
         this.chatText.setText(""); // limpa o campo de texto do chat
         this.messageText.setText(""); // limpa o campo de texto da mensagem
 
@@ -146,7 +144,6 @@ public class ClientInterface extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         messageText = new javax.swing.JTextArea();
         sendBtn = new javax.swing.JButton();
-        clearBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -225,14 +222,6 @@ public class ClientInterface extends javax.swing.JFrame {
             }
         });
 
-        clearBtn.setText("Limpar");
-        clearBtn.setEnabled(false);
-        clearBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearBtnActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -242,10 +231,9 @@ public class ClientInterface extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addComponent(jScrollPane2)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(sendBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(clearBtn)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(sendBtn)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -256,9 +244,7 @@ public class ClientInterface extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sendBtn)
-                    .addComponent(clearBtn))
+                .addComponent(sendBtn)
                 .addContainerGap())
         );
 
@@ -318,10 +304,6 @@ public class ClientInterface extends javax.swing.JFrame {
         disconnect(); // desconecta o socket
     }//GEN-LAST:event_dcBtnActionPerformed
 
-    private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clearBtnActionPerformed
-
     private void sendBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendBtnActionPerformed
         String text = this.messageText.getText(); // variável que contém a mensagem digitada pelo cliente
         String name = this.message.getName(); // variável que contém o nome do cliente que digitou a mensagem
@@ -351,7 +333,6 @@ public class ClientInterface extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea chatText;
-    private javax.swing.JButton clearBtn;
     private javax.swing.JButton connBtn;
     private javax.swing.JButton dcBtn;
     private javax.swing.JPanel jPanel1;
